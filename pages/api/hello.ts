@@ -6,15 +6,11 @@ import { PrismaClient } from '@prisma/client'
   return this.toString();
 }
 
-type Data = {
-  name: string
-}
-
 const prisma = new PrismaClient()
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<any>
 ) {
   const user = await prisma.users.findFirst({
     where: {
