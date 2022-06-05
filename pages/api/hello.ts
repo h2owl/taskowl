@@ -1,12 +1,10 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { PrismaClient } from '@prisma/client'
+import { prisma } from '../../lib/prisma';
 
 (BigInt.prototype as any).toJSON = function () {
   return this.toString();
 }
-
-const prisma = new PrismaClient()
 
 export default async function handler(
   req: NextApiRequest,
@@ -16,7 +14,7 @@ export default async function handler(
     where: {
       id: 1
     }
-  })
-  await prisma.$disconnect()
+  });
+  
   res.status(200).json(user)
 }
