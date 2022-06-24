@@ -9,4 +9,9 @@ prisma.$on('beforeExit', async () => {
   await prisma.$disconnect();
 });
 
+// 取得データのjson化でエラーになるのを回避する
+(BigInt.prototype as any).toJSON = function () {
+  return this.toString();
+}
+
 export * from "@prisma/client";
