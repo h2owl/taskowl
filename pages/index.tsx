@@ -23,9 +23,6 @@ const Home: NextPage = () => {
         <TextInput onChange={()=>{console.log("parent handler")}}></TextInput>
 
         <div className={styles.grid}>
-          <Card href="/login">
-            <h2>Login</h2>
-          </Card>
 
           <Card href="https://nextjs.org/learn">
             <h2>Learn &rarr;</h2>
