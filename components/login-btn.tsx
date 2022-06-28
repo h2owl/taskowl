@@ -10,14 +10,14 @@ export default function LoginButton() {
     return (
       <>
         Signed in as {(session.user) ? session.user.email : ""} <br />
-        <button onClick={() => signOut()}>Sign out</button>
+        <button className="btn btn-primary" onClick={() => signOut()}>Sign out</button>
       </>
     )
   }
   return (
     <>
       Not signed in <br />
-      <button onClick={() => signIn()}>Sign in</button>
+      <button className="btn btn-primary" onClick={() => signIn()}>Sign in</button>
     </>
   )
 }
