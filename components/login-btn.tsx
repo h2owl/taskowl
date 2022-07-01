@@ -1,5 +1,6 @@
 import { useSession, signIn, signOut } from "next-auth/react"
-import { useEffect, useState } from 'react';
+import Link from "next/link";
+import { useEffect } from 'react';
 
 export default function LoginButton() {
   const { data: session } = useSession()
@@ -9,7 +10,10 @@ export default function LoginButton() {
   if (session) {
     return (
       <>
-        Signed in as {(session.user) ? session.user.email : ""} <br />
+        <Link href="/user/profile">
+          <a>Signed in as {(session.user) ? session.user.email : ""}</a>
+        </Link>
+        <br />
         <button className="btn btn-primary" onClick={() => signOut()}>Sign out</button>
       </>
     )

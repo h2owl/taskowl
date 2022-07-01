@@ -1,9 +1,10 @@
-import type { NextPage } from 'next'
 import Head from 'next/head'
+import Link from "next/link";
 import styles from '../styles/Home.module.css'
 import LoginButton from './login-btn'
 
-const Layout = ({children}: any) => (
+function Layout ({children}: any) {
+  return (
     <div className={styles.container}>
       <Head>
         <title>Create Next App</title>
@@ -17,8 +18,9 @@ const Layout = ({children}: any) => (
       </main>
 
       <footer className={styles.footer}>
-        hogehoge
+        <Link href="/"><a>hogehoge</a></Link>
       </footer>
     </div>
-)
+  )
+}
 export default Layout

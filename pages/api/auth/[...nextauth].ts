@@ -32,7 +32,8 @@ export default NextAuth({
       // You can pass any HTML attribute to the <input> tag through the object.
       credentials: {
         username: { label: "Username", type: "text", placeholder: "jsmith" },
-        password: {  label: "Password", type: "password" }
+        password: {  label: "Password", type: "password" },
+        option: { label: "hoge", type: "text"}
       },
       async authorize(credentials, req) {
         // Add logic here to look up the user from the credentials supplied
@@ -52,7 +53,14 @@ export default NextAuth({
   ],
   callbacks: {
     async signIn({ user, account, profile, email, credentials }) {
-      console.log('サインイン');
+      console.log('サインイン')
+      console.log(user)
+      console.log(account)
+      if (account.provider != "credentials") {
+        console.log(profile)
+        console.log(email)
+      }
+      console.log(credentials)
       return true;
     },
   },
