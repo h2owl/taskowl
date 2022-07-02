@@ -16,7 +16,7 @@ const findUserByCredentials = async (credentials:any) => {
 }
 
 export default NextAuth({
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: process.env.NEXT_PUBLIC_NEXTAUTH_SECRET,
   // Configure one or more authentication providers
   providers: [
     GithubProvider({
