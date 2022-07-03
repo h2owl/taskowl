@@ -1,6 +1,7 @@
 import { SessionProvider } from "next-auth/react"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../styles/globals.css'
+import Layout from '../components/layout'
 import type { AppProps } from 'next/app'
 import { useEffect, useState } from 'react';
 import { useRouter } from "next/router"
@@ -27,7 +28,9 @@ function MyApp({ Component, pageProps:{ session, ...pageProps } }: AppProps) {
   return <>
       {pageLoading && loadingComponent}
       <SessionProvider session={session}>
+        <Layout>
         <Component {...pageProps} />
+        </Layout>
       </SessionProvider>
     </>
 }
