@@ -1,11 +1,6 @@
 import type { NextPage } from 'next'
-import { users } from '@prisma/client';
 import React,{ lazy, Suspense } from 'react'
-
-
-type Props = {
-    user: users
-};
+import {UserProfileEditForm, UserProfileEditFormProps} from '../../../components/user_profile_edit_form'
 
 export async function getServerSideProps() {
     // Fetch data from external API
@@ -17,17 +12,7 @@ export async function getServerSideProps() {
     return { props: { user: data } }
 }
 
-const UserProfileEditForm = (props: Props) => {
-    return (
-        <>
-            <p>{props.user.id.toString()}</p>
-            <p>{props.user.name.toString()}</p>
-            <p>{props.user.email.toString()}</p>
-        </>
-    )
-}
-
-const UserProfileEdit: NextPage<Props> = (props:Props) => {
+const UserProfileEdit: NextPage<UserProfileEditFormProps> = (props:UserProfileEditFormProps) => {
     // console.log(ReactDOMServer.renderToStaticMarkup(<footer></footer>))
     console.log("data:")
     console.log(props)
