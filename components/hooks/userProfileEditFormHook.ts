@@ -3,7 +3,8 @@ import { useState } from 'react';
 export const useUserProfileEdit = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
-    const submitUserProfileForm = async () => {
+    const submitUserProfileForm = async (e:React.FormEvent) => {
+        e.preventDefault()
         /*await fetch('/api/mail', {
           method: 'POST',
           body:"",

@@ -25,13 +25,15 @@ const UserProfileEditForm = (props: UserProfileEditFormProps) => {
 
     return (
         <form onSubmit={submitUserProfileForm}>
-            <label htmlFor="name">Name</label>
-            <input type="text" id="name" name="name" defaultValue={props.user.name.toString()} onChange={(e)=>{setName(e.target.value)}} required />
+            <fieldset disabled={false}>
+                <label htmlFor="name">Name</label>
+                <input type="text" id="name" name="name" defaultValue={props.user.name.toString()} onChange={(e)=>{setName(e.target.value)}} required />
 
-            <label htmlFor="email">Email</label>
-            <input type="text" id="email" name="email" defaultValue={props.user.email.toString()} onChange={(e)=>{setEmail(e.target.value)}} required />
+                <label htmlFor="email">Email</label>
+                <input type="text" id="email" name="email" defaultValue={props.user.email.toString()} onChange={(e)=>{setEmail(e.target.value)}} required />
 
-            <button type="submit">Submit</button>
+                <button type="submit">Submit</button>
+            </fieldset>
         </form>
     )
 }

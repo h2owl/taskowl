@@ -1,12 +1,13 @@
 import type { NextPage } from 'next'
 import React,{ lazy, Suspense } from 'react'
+import axios from "axios";
 import {UserProfileEditForm, UserProfileEditFormProps} from '../../../components/user_profile_edit_form'
 
 export async function getServerSideProps() {
     // Fetch data from external API
     let apiURL = ((typeof window !== 'undefined') ? location.origin : process.env.API_HOST_AT_SERVER) + "/api/hello"
-    const res = await fetch(apiURL)
-    const data = await res.json()
+    const res = await axios.get(apiURL)
+    const data = await res.data
   
     // Pass data to the page via props
     return { props: { user: data } }

@@ -1,11 +1,12 @@
 import useSWR from "swr";
 import { users } from '@prisma/client';
+import axios from "axios";
 
 export const useAllUsersSWR = () => {
   const fetcher = async (url: string): Promise<any> => {
     console.log("url:" + url)
-    const resonse = await fetch(url);
-    return resonse.json();
+    const resonse = await axios.get(url);
+    return resonse.data;
   };
   
   const { data, error } = useSWR<users>(
