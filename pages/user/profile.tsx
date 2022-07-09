@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import Link from "next/link";
 import React, { Suspense } from 'react'
 import { useAllUsersSWR } from '../../components/hooks/useUserSWR'
-import ReactDOMServer from 'react-dom/server';
+// import ReactDOMServer from 'react-dom/server';
 
 const UserProfiler = () => {
     const user = useAllUsersSWR()

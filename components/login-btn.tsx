@@ -11,16 +11,17 @@ export default function LoginButton() {
     return (
       <>
         <Link href="/user/profile">
-          <a>Signed in as {(session.user) ? session.user.email : ""}</a>
+          <a className={`me-3 py-2 text-dark text-decoration-none`}>
+            Signed in as {(session.user) ? session.user.email : ""}
+          </a>
         </Link>
-        <br />
         <button className="btn btn-primary" onClick={() => signOut()}>Sign out</button>
       </>
     )
   }
   return (
     <>
-      Not signed in <br />
+      <span className={`me-3 py-2 text-dark text-decoration-none`}>Not signed in</span>
       <button className="btn btn-primary" onClick={() => signIn()}>Sign in</button>
     </>
   )
