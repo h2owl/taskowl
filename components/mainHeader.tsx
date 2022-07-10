@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styles from '../styles/Home.module.css'
-import LoginButton from './login-btn'
+import LoginButton from './loginBtn'
 
 function MainHeader () {
     return (

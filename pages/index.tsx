@@ -4,7 +4,7 @@ import Head from 'next/head'
 import Card from '../components/card'
 import HookTest from '../components/hook'
 import Layout from '../components/layout'
-import TextInput from '../components/text_input'
+import TextInput from '../components/textInput'
 import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {

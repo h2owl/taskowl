@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import React,{ lazy, Suspense } from 'react'
 import axios from "axios";
-import {UserProfileEditForm, UserProfileEditFormProps} from '../../../components/user_profile_edit_form'
+import {UserProfileEditForm, UserProfileEditFormProps} from '../../../components/userProfileEditForm'
 
 export async function getServerSideProps() {
     // Fetch data from external API
