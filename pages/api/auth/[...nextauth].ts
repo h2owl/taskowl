@@ -6,7 +6,7 @@ import { prisma } from '../../../lib/prisma';
 const findUserByCredentials = async (credentials:any) => {
   console.log("credentials:")
   console.log(credentials)
-  const user = await prisma.users.findFirst({
+  const user = await prisma.user.findFirst({
     where: {
       email: credentials.username,
       password: credentials.password,
@@ -15,14 +15,12 @@ const findUserByCredentials = async (credentials:any) => {
   return user
 }
 
-export default NextAuth({
-  secret: process.env.NEXT_PUBLIC_NEXTAUTH_SECRET,
+export const authOptions = {
+  secret: process.env.NEXTAUTH_SECRET,
+  // adapter: PrismaAdapter(prisma),
+
   // Configure one or more authentication providers
   providers: [
-    GithubProvider({
-      clientId: process.env.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET,
-    }),
     CredentialsProvider({
       // The name to display on the sign in form (e.g. "Sign in with...")
       name: "Credentials",
@@ -52,7 +50,7 @@ export default NextAuth({
     }),
   ],
   callbacks: {
-    async signIn({ user, account, profile, email, credentials }) {
+    async signIn({ user, account, profile, email, credentials }: any) {
       console.log('サインイン')
       console.log(user)
       console.log(account)
@@ -63,5 +61,13 @@ export default NextAuth({
       console.log(credentials)
       return true;
     },
+    async session({session, token, user}: any) {
+      console.log("session:")
+      console.log(session)
+      console.log(token)
+      console.log(user)
+      return session;
+    },
   },
-})
+}
+export default NextAuth(authOptions)

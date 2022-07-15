@@ -9,7 +9,8 @@ datasource db {
   referentialIntegrity = "prisma"
 }
 
-model users {
+model User {
+  @@map("users")
   id         BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
   name       String    @default("") @db.VarChar(128)
   email      String    @unique(map: "user_uk01") @default("") @db.VarChar(255)

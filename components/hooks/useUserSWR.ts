@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import { users } from '@prisma/client';
+import { User } from '@prisma/client';
 import axios from "axios";
 
 export const useAllUsersSWR = () => {
@@ -9,7 +9,7 @@ export const useAllUsersSWR = () => {
     return resonse.data;
   };
   
-  const { data, error } = useSWR<users>(
+  const { data, error } = useSWR<User>(
     ((typeof window !== 'undefined') ? location.origin : process.env.API_HOST_AT_SERVER) + "/api/hello",
     fetcher,
     { suspense: true }

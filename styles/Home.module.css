@@ -10,6 +10,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+/* ページ遷移時のフェードイン・アウト用 */
+  /*transition: 0.2s;*/
+  /*opacity: 0;*/
+}
+
+/* ページ遷移時のフェードイン・アウト用 */
+.fadeIn {
+  opacity: 1;
 }
 
 .footer {

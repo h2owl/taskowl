@@ -1,9 +1,9 @@
-import { users } from '@prisma/client';
+import { User } from '@prisma/client';
 import React from 'react'
 import {useUserProfileEdit} from './hooks/userProfileEditFormHook'
 
 type UserProfileEditFormProps = {
-    user: users
+    user: User
 };
 
 const UserProfileEditForm = (props: UserProfileEditFormProps) => {
@@ -21,11 +21,11 @@ const UserProfileEditForm = (props: UserProfileEditFormProps) => {
         const JSONdata = JSON.stringify(data)
         alert(JSONdata)
     }*/
-    const { setName, setEmail, submitUserProfileForm } = useUserProfileEdit();
+    const { networking, setName, setEmail, submitUserProfileForm } = useUserProfileEdit(props.user);
 
     return (
         <form onSubmit={submitUserProfileForm}>
-            <fieldset disabled={false}>
+            <fieldset disabled={networking}>
                 <label htmlFor="name">Name</label>
                 <input type="text" id="name" name="name" defaultValue={props.user.name.toString()} onChange={(e)=>{setName(e.target.value)}} required />
 

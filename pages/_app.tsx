@@ -1,10 +1,12 @@
 import { SessionProvider } from "next-auth/react"
-import 'bootstrap/dist/css/bootstrap.min.css'
-import '../styles/globals.css'
-import Layout from '../components/layout'
 import type { AppProps } from 'next/app'
 import { useEffect, useState } from 'react';
 import { useRouter } from "next/router"
+
+import Layout from '../components/layout'
+import LoadingComponent from "../components/pageLoading";
+import 'bootstrap/dist/css/bootstrap.min.css'
+import '../styles/globals.css'
 
 function MyApp({ Component, pageProps:{ session, ...pageProps } }: AppProps) {
   const router = useRouter()
@@ -24,9 +26,8 @@ function MyApp({ Component, pageProps:{ session, ...pageProps } }: AppProps) {
       router.events.off('routeChangeError', handleComplete)
     }
   })
-  const loadingComponent = (<h2>Loading...</h2>)
   return <>
-      {pageLoading && loadingComponent}
+      {pageLoading && LoadingComponent()}
       <SessionProvider session={session}>
         <Layout>
         <Component {...pageProps} />

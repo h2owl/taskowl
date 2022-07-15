@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Link from "next/link";
+import { useState, useEffect } from "react";
 import styles from '../styles/Home.module.css'
 import MainHeader from './mainHeader'
 
@@ -13,7 +14,7 @@ function Layout ({children}: any) {
       </Head>
 
       <MainHeader />
-      <main className={styles.main}>
+      <main className={`${styles.main}`}>
         {children}
       </main>
 
